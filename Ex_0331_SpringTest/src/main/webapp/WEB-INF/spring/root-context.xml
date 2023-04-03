@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+	
+	<!-- 자바에서는 PersonVO p1 = new PersonVO(); -->
+	<!-- spring에서는 bean이 객체생성, id = 객체명 / 아래가 VO 메모리 할당하는 코드-->
+	<bean id = "p1" class="vo.PersonVO">
+		<!-- spring bean을 통해 PersonVO객체의 생성자를 호출 -->
+		<!-- 자바였다면 p1.setName("홍길동"); -->
+		<!-- p1객체의 setName()을 통해 홍길동이라는 값을 넣어주는 구조이므로 -->
+		<!-- PersonVO에 setter가 없으면 오류발생. setter getter는 필수 항목 -->
+		<property name="name" value="홍길동"/>
+		<property name="age" value="20"/>
+		<property name="tel" value="010-111-1111"/>
+		
+		<!-- 위와 같이 setter를 통해 값을 넣어주는 구조를 -->
+		<!-- si(setter injection)이라고 한다 -->
+	</bean>
+	
+	<bean id="p2" class="vo.PersonVO">
+		<!-- 자바였다면 PersonVO p2 = new PersonVO("박길동", 30, "010-222-2222"); -->
+		<!-- 생성자로 값 넣기. 순서 맞춰줘야함 -->
+		<constructor-arg value="박길동"/>
+		<constructor-arg value="30"/>
+		<constructor-arg value="010-222-2222"/>
+		<!-- 위와 같이 생성자를 통해 값을 넣어주는 구조를 -->
+		<!-- ci(constructor injection)이라고 한다 -->
+	</bean>
+		
+</beans>
