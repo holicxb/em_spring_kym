@@ -8,7 +8,7 @@ public class MyCommon {
 		public static final String VIEW_PATH = "/WEB-INF/views/visit/";
 	}
 	
-	//게사판
+	//게시판
 	public static class Board{
 		public static final String VIEW_PATH = "/WEB-INF/views/board/";
 	}
